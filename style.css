@@ -1,0 +1,150 @@
+h1{
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+
+.stage {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: auto;
+}
+
+.ball {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 120%, #323232, #0a0a0a 80%, #000000 100%);
+  cursor: pointer;
+}
+
+.ball:before {
+  content: "";
+  position: absolute;
+  background: radial-gradient(circle at 50% 120%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  bottom: 2.5%;
+  left: 5%;
+  opacity: 0.6;
+  height: 100%;
+  width: 90%;
+}
+
+.ball:after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: "";
+  border-radius: 50%;
+  transform: translateX(-60px) translateY(-80px) skewX(-20deg);
+  filter: blur(20px);
+  background: radial-gradient(circle at 45% 45%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8) 14%, rgba(255, 255, 255, 0) 24%);
+}
+
+.eight, .message-circle {
+  position: absolute;
+  top: 25%;
+  left: 30%;
+  height: 170px;
+  width: 170px;
+  background-color: #fff;
+  border-radius: 50%;
+  color: black;
+  text-align: center;
+  font-family: Arial;
+  font-size: 120px;
+  line-height: 1.40;
+}
+
+.message-circle {
+  transform: skewX(0deg);
+  background: linear-gradient(-45deg, rgba(20,0,20,1) 0%, rgba(120,0,120,1) 100%);
+  border: inset 5px #280028;
+  word-wrap: break-word;
+  font-size: 16px;
+  color: white;
+}
+
+.triangle, .message{
+  position: absolute;
+  animation: fortune;
+}
+
+.triangle {
+  top: 150px;
+  left: 145px;
+  width: 0;
+  height: 0;
+  border-left: 65px solid transparent;
+  border-right: 65px solid transparent;
+  border-top: 110px solid #3B0B7F;
+  animation-duration: 2s;
+}
+
+.message {
+  top: 155px;
+  left: 160px;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  font-family: Arial;
+  width: 100px;
+  word-wrap: break-word;
+  animation-duration: 2.2s;
+}
+
+/* Animation keyframes */
+
+@keyframes shake {
+  0%{top: -50px;}
+  16%{top: 50px;}
+  33%{top:-50px;}
+  49%{top:50px;}
+  65%{top:-50px;}
+  83%{top:50px;}
+  100%{top:0}
+}
+
+@keyframes fortune {
+  0% {transform: translateX(-50px) translateY(50px) rotate(90deg); opacity: 0;}
+  50% {opacity: 0;}
+  100% {transform: 0; opacity: 1;}
+}
+
+@keyframes opacity {
+  from{opacity: 0;}
+  to{opacity: 1;}
+}
+
+
+/* mobile break view */
+@media only screen and (max-width: 399px) {
+  .stage {
+    height: 300px;
+    width: 300px;
+  }
+
+  .eight, .message-circle {
+    height: 130px;
+    width: 130px;
+    font-size: 100px;
+    line-height: 1.25;
+  }
+
+  .triangle {
+    top: 110px;
+    left: 110px;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 90px solid #3B0B7F;
+  }
+
+  .message {
+    top: 115px;
+    left: 110px;
+    font-size: 12px;
+  }
+}
